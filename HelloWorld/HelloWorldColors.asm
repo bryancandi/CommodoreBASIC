@@ -8,10 +8,9 @@
         BYTE    $33, $30, $34, $29, $00, $00, $00
 
 *=$0900                 ; Assembly program starting address
-        lda #$93        ; PETSCII code to clear the screen
-        jsr $FFD2       ; Call CHROUT to clear the screen
+        lda #$93        ; Load PETSCII code for clear screen into the accumulator
+        jsr $FFD2       ; Call CHROUT with the PETSCII clear code to clear the screen
         lda #$08        ; Set uppercase/graphics mode (optional)
-        jsr $FFD2
         ldx #$00        ; Initialize X register as index (starts at 0)
 
 NEXT_CHAR
