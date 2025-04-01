@@ -34,5 +34,4 @@ HELLOWORLD
 COLORS
         byte 2, 5, 3, 4, 7       ; Red, Green, Cyan, Purple, Yellow for "HELLO"
         byte 1                   ; White for space
-        byte 15, 8, 10, 13, 14   ; Light Gray, Orange, Light Red, Light Green, Light Blue for "WORLD"
-        byte 0                   ; Null terminator (not used, just for alignment)
+        byte 15, 8, 10, 13, 14   ; Light Gray, Orange, Light Red, Light Green, Light Blue for "WORLD"        
