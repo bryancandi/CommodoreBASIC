@@ -1,3 +1,6 @@
+; C64 Assembly "Hello World" Program
+; Prints "hello world" to the screen and returns to BASIC.
+
 ; 10 SYS (2304)
 
 *=$0801                 ; Set the starting memory address for the BASIC program
