@@ -9,13 +9,14 @@
 
 *=$0900                 ; Assembly program starting address
         lda #$93        ; Load PETSCII code for clear screen into the accumulator
-        jsr $FFD2       ; Call CHROUT with the PETSCII clear code to clear the screen
+        jsr $FFD2       ; Output via CHROUT with the PETSCII clear code to clear the screen
         lda #$08        ; Set uppercase/graphics mode (optional)
+        jsr $FFD2       ; Output via CHROUT
         ldx #$00        ; Initialize X register as index (starts at 0)
 
 NEXT_CHAR
         lda HELLOWORLD,x ; Load screen code from string at index X
-        beq END          ; If it’s 0 (null terminator), exit
+        beq END         ; If it’s 0 (null terminator), exit
         sta $0400,x     ; Write screen code to screen memory
         lda COLORS,x    ; Load color code from color table at index X
         sta $D800,x     ; Write color to color memory
