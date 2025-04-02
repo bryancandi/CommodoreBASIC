@@ -16,8 +16,8 @@
 
         ; Set background and border colors to black
         lda #$00                ; Load black color code into the accumulator
-        sta $D020               ; Write (store) frame color to memory
-        sta $D021               ; Write (store) background color to memory               
+        sta $D020               ; Write (store) frame color to memory (53280)
+        sta $D021               ; Write (store) background color to memory (53281)
 
 HELLOWORLD_LOOP
         lda HELLOWORLD,x        ; Load screen code from string at index X
@@ -43,7 +43,7 @@ PRESSKEY_LOOP
 WAIT_KEY
         jsr GETIN               ; Call GETIN subroutine
 
-        ; Add line break before returning to BASIC
+        ; Add line breaks before returning to BASIC
         lda #$0D                ; Load carriage return code (moves cursor to next line)
         jsr $FFD2               ; Output via CHROUT with carriage return (cursor to line 3)
         jsr $FFD2               ; Output via CHROUT again (cursor to line 4)
