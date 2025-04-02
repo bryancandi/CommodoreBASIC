@@ -23,4 +23,6 @@ Welcome to my repository of Commodore 64 programs! This collection showcases the
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to contribute, share, or modify!
 
 ---
-Thank you for exploring my Commodore 64 programs!
+Thank you for exploring my Commodore 64 programs!\
+\
+This repository is continually evolving as I add new programs and refine existing ones. Feedback is welcome!
