@@ -67,7 +67,7 @@ COLORS
         byte 0                  ; Null terminator
 
 PRESSKEY
-        byte 16, 18, 5, 19, 19, 32, 11, 5, 25 ; Screen codes for PRESS KEY
+        byte 16, 18, 5, 19, 19, 32, 11, 5, 25 ; Screen codes for "PRESS KEY"
         byte 0                  ; Null terminator
 
 GETIN           ; GETIN subroutine: Waits for a key press
