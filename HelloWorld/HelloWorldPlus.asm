@@ -18,41 +18,41 @@
 
         ; Set background and border colors to black
         lda #$00                ; Load black color code into the accumulator
-        sta $D020               ; Write (store) border color to memory (53280)
-        sta $D021               ; Write (store) background color to memory (53281)
+        sta $D020               ; Store the border color into memory (53280)
+        sta $D021               ; Store the background color into memory (53281)
 
 HELLOWORLD_LOOP
         lda HELLOWORLD,x        ; Load screen code from string at index X
-        beq NEXTSTRING_0        ; If null, move to next string
-        sta $0400,x             ; Write screen code to screen memory
+        beq NEXTSTRING_0        ; If character is null (0), move to next string
+        sta $0400,x             ; Store screen code to screen memory at address + X
         lda HELLOWORLD_COLORS,x ; Load color code from color table at index X
-        sta $D800,x             ; Write color to color memory
-        inx                     ; Increment index (next character)
-        jmp HELLOWORLD_LOOP     ; Repeat for next character
+        sta $D800,x             ; Store color code to color memory at address + X
+        inx                     ; Increment X index register (next character)
+        jmp HELLOWORLD_LOOP     ; Loop to process the next character
 
 NEXTSTRING_0
         ldx #$00                ; Reset index X to 0 for next string loop
 
 HELLOASSY_LOOP
         lda HELLOASSY,x         ; Load screen code from string at index X
-        beq NEXTSTRING_1        ; If null, move to next string
-        sta $0428,x             ; Write to second line (40 bytes offset down)
+        beq NEXTSTRING_1        ; If character is null (0), move to next string
+        sta $0428,x             ; Store screen code to screen memory at address + X (40 bytes offset - 2nd line)
         lda HELLOASSY_COLORS,x  ; Load color code from color table at index X
-        sta $D828,x             ; Write color to color memory (40 bytes offset)
-        inx                     ; Increment index (next character)
-        jmp HELLOASSY_LOOP      ; Repeat for next character
+        sta $D828,x             ; Store color code to color memory at address + X (40 bytes offset)
+        inx                     ; Increment X index register (next character)
+        jmp HELLOASSY_LOOP      ; Loop to process the next character
 
 NEXTSTRING_1
         ldx #$00                ; Reset index X to 0 for next string loop
 
 PRESSKEY_LOOP
         lda PRESSKEY,x          ; Load screen code from string at index X
-        beq WAIT_KEY            ; This is the last string, so if null, wait for key
-        sta $0478,x             ; Write to fourth line (120 bytes offset down)
+        beq WAIT_KEY            ; If character is null (0), wait for key
+        sta $0478,x             ; Store screen code to screen memory at address + X (120 bytes offset - 4th line)
         lda #$01                ; Load white color code
-        sta $D878,x             ; Write color to color memory (120 bytes offset)
-        inx                     ; Increment index (next character)
-        jmp PRESSKEY_LOOP       ; Repeat for next character
+        sta $D878,x             ; Store color code to color memory at address + X (120 bytes offset)
+        inx                     ; Increment X index register (next character)
+        jmp PRESSKEY_LOOP       ; Loop to process the next character
 
 WAIT_KEY
         jsr GETIN               ; Call GETIN subroutine
@@ -63,11 +63,11 @@ WAIT_KEY
         jsr $FFD2               ; Output via CHROUT again (cursor to next line)
         jsr $FFD2               ; Output via CHROUT again (cursor to next line)
 
-        ; Reset to C64 default colors (load to accumulator and store)
+        ; Reset to C64 default colors when returning to BASIC
         lda #$0E                ; Load light blue border
-        sta $D020               ; Write color to memory
+        sta $D020               ; Store color to memory
         lda #$06                ; Load blue background
-        sta $D021               ; Write color to memory
+        sta $D021               ; Store color to memory
         rts                     ; Return to BASIC
 
 ; Data for "HELLOWORLD" (Line 1)
