@@ -102,7 +102,7 @@ HELLOASSY_COLORS
         byte 1                  ; White for "!"
         byte 0                  ; Null terminator
 
-; Data for "PRESS KEY" (Line 4)
+; Data for "PRESSKEY" (Line 4)
 PRESSKEY
         byte 16, 18, 5, 19, 19  ; Screen codes for "PRESS"        
         byte 32                 ; Screen code for space
