@@ -1,19 +1,19 @@
-# Commodore 64 BASIC and Assembly Program Collection
+# Commodore 64 BASIC and Assembly Programs
 
-Welcome to my repository of Commodore 64 programs! This collection showcases the creativity and possibilities of retro computing, with examples written in both BASIC and Assembly Language.
+Welcome to my repository of Commodore 64 programs! This collection showcases the creativity and possibilities of retro computing, with examples written in both BASIC and Assembly language.
 
 ## File Types
-- **` .PRG `**: Precompiled binaries, ready to load and execute seamlessly on Commodore 64 emulators or the original hardware.
-- **` .BAS `**: Source code for Commodore BASIC programs. Easily modified directly in a BASIC editor or emulator.
-- **` .ASM `**: Assembly Language source code, requiring an assembler.
+- **` .PRG `**: Executable programs for the C64. Precompiled binaries ready to load and execute on emulators or real hardware (requires disk/other media transfer for real hardware).
+- **` .BAS `**: Source code for Commodore BASIC programs. Easily modified directly in a text editor or IDE.
+- **` .ASM `**: Source code for C64 (6502) assembly programs. Easily modified directly in a text editor or IDE. Requires an assembler.
 
 ## How to Use
 1. **` .PRG ` Files:**
-   - Load these directly into your emulator or C64 system.
+   - Load these directly into your emulator or a real C64 system and `RUN`.
 2. **` .BAS ` Files:**
-   - Open and edit in any BASIC editor, then load to run.
+   - Open/edit in a text editor, then enter into an emulator or a real C64 system and `RUN`.
 3. **` .ASM ` Files:**
-   - Assemble with an assembler and run the output on your C64 or emulator.
+   - Assemble into a .prg with an assembler, then load into an emulator or a real C64 system and `RUN`.
 
 ## Tools and Requirements
 - [VICE Emulator](https://vice-emu.sourceforge.io/) for running programs.
